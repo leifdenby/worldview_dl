@@ -1,5 +1,7 @@
 # Download tool for NASA WorldView
 
+![](docs/GOES_2020-01-28T16:10:00+00:00.png)
+
 ## Installation
 
 ```bash
