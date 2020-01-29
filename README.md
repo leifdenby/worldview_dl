@@ -2,6 +2,9 @@
 
 ![](docs/GOES_2020-01-28T16:10:00+00:00.png)
 
+[![Build
+Status](https://travis-ci.com/leifdenby/worldview_dl.svg?branch=master)](https://travis-ci.com/leifdenby/worldview_dl)
+
 ## Installation
 
 ```bash
