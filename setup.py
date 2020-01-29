@@ -20,7 +20,7 @@ with open('README.md') as readme_file:
     readme = readme_file.read()
 
 requirements = [
-    "pendulum", "requests"
+    "pendulum", "requests", "pytz"
 ]
 
 setup_requirements = [ ]
@@ -51,6 +51,7 @@ setup(
     install_requires=requirements,
     license="MIT license",
     long_description=readme,
+    long_description_content_type="text/markdown",
     include_package_data=True,
     keywords='worldview_dl',
     name='worldview_dl',
