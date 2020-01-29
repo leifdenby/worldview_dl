@@ -23,3 +23,8 @@ def test_cli():
     cmd = 'python -m worldview_dl.cli "2020-01-28 16:20" 10.,-60.,15.,-50. --image_type png'
     result = os.system(cmd)
     assert(0 == result)
+
+def test_cli_timerange():
+    cmd = 'python -m worldview_dl.cli "2020-01-28 16:20" 10.,-60.,15.,-50. --image_type png --end-time "2020-01-28 18:00"'
+    result = os.system(cmd)
+    assert(0 == result)

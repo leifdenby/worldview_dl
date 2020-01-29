@@ -4,6 +4,9 @@ import sys
 
 import dateutil.parser
 import pytz
+import tqdm
+import datetime
+import math
 
 from .worldview_dl import download_image
 
@@ -30,23 +33,37 @@ def main():
     parser.add_argument('--image_type', default='tiff')
     # 1px ~ 1km ~ 1/100 deg
     parser.add_argument('--resolution', default=1.0/100, type=float)
+    parser.add_argument('--end-time', default=None, type=_parse_utc_timedate)
 
     args = parser.parse_args()
 
-    fn = "GOES_{time}.{ext}".format(
-        time=args.time.isoformat(),
-        ext=args.image_type
-    )
+    if args.end_time is None:
+        times = [args.time]
+        wrap = lambda t: t
+    else:
+        t_len = args.end_time - args.time
+        dt = datetime.timedelta(seconds=60*10)
+        N = int(math.ceil(t_len/dt))
+        times = [args.time + n*dt for n in range(N)]
+        wrap = lambda t: tqdm.tqdm(t)
 
-    download_image(
-        fn=fn,
-        time=args.time,
-        bbox=args.bbox,
-        layers=args.layers,
-        image_format=args.image_type,
-        resolution=args.resolution,
-    )
-    print("Image downloaded to `{}`".format(fn))
+    for t in wrap(times):
+
+        fn = "GOES_{time}.{ext}".format(
+            time=t.isoformat(),
+            ext=args.image_type
+        )
+
+        download_image(
+            fn=fn,
+            time=args.time,
+            bbox=args.bbox,
+            layers=args.layers,
+            image_format=args.image_type,
+            resolution=args.resolution,
+        )
+        if len(times) == 1:
+            print("Image downloaded to `{}`".format(fn))
 
 
 if __name__ == "__main__":

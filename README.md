@@ -17,7 +17,7 @@ You may either download using the command line cli:
 
 ```bash
 usage: cli.py [-h] [--layers LAYERS [LAYERS ...]] [--image_type IMAGE_TYPE]
-              [--resolution RESOLUTION]
+              [--resolution RESOLUTION] [--end-time END_TIME]
               time bbox
 ```
 
