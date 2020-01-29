@@ -44,7 +44,7 @@ def main():
         t_len = args.end_time - args.time
         dt = datetime.timedelta(seconds=60*10)
         N = int(math.ceil(t_len/dt))
-        times = [args.time + n*dt for n in range(N)]
+        times = [args.time + n*dt for n in range(N+1)]
         wrap = lambda t: tqdm.tqdm(t)
 
     for t in wrap(times):
@@ -56,7 +56,7 @@ def main():
 
         download_image(
             fn=fn,
-            time=args.time,
+            time=t,
             bbox=args.bbox,
             layers=args.layers,
             image_format=args.image_type,

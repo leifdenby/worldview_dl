@@ -20,7 +20,7 @@ with open('README.md') as readme_file:
     readme = readme_file.read()
 
 requirements = [
-    "pendulum", "requests", "pytz"
+    "pendulum", "requests", "pytz", "tqdm"
 ]
 
 setup_requirements = [ ]

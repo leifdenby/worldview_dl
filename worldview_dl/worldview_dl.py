@@ -4,8 +4,7 @@ import pendulum
 import datetime
 
 
-BASE_URL = "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&TIME={time}&BBOX={bbox}&CRS=EPSG:4326&LAYERS={layers}&WRAP=x,x&FORMAT={format}&WIDTH={width}&HEIGHT={height}&ts=1580305060785"
-BASE_URL = "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&TIME={time}&BBOX={bbox}&CRS=EPSG:4326&LAYERS={layers}&FORMAT={format}&WIDTH={width}&HEIGHT={height}&ts=1580305060785"
+BASE_URL = "https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&TIME={time}&BBOX={bbox}&CRS=EPSG:4326&LAYERS={layers}&FORMAT={format}&WIDTH={width}&HEIGHT={height}"
 # example arguments:
 #  time: 2020-01-29T12:10:00Z
 #  bbox: 10.177734375,-60.1875,16.41796875,-53.5166015625
