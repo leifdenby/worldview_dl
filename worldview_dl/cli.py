@@ -34,6 +34,7 @@ def main():
     # 1px ~ 1km ~ 1/100 deg
     parser.add_argument('--resolution', default=1.0/100, type=float)
     parser.add_argument('--end-time', default=None, type=_parse_utc_timedate)
+    parser.add_argument('--file-format', default="WorldView_{time}.{ext}")
 
     args = parser.parse_args()
 
@@ -49,7 +50,7 @@ def main():
 
     for t in wrap(times):
 
-        fn = "GOES_{time}.{ext}".format(
+        fn = args.file_format.format(
             time=t.isoformat(),
             ext=args.image_type
         )
